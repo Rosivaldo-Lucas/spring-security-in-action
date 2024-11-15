@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Getter
 @Entity
-@Table(name = "user_tb")
+@Table(name = "users")
 public class User implements Serializable {
 
   @Id
@@ -26,6 +26,13 @@ public class User implements Serializable {
   private String authority;
 
   protected User() { }
+
+  public User(String username, String password, String authority) {
+    this.id = UUID.randomUUID();
+    this.username = username;
+    this.password = password;
+    this.authority = authority;
+  }
 
   @Override
   public boolean equals(Object o) {
